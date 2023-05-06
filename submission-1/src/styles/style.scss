@@ -1,5 +1,290 @@
-$body-color: red;
+// Syarat:
+// Seluruh fungsionalitas website dapat dilakukan dengan menggunakan keyboard. Contohnya mengakses tombol hamburger button, mengakses tautan yang ada.
+// Menerapkan teknik skip to content untuk melewati focus pada menu navigasi.
+// Terdapat alternative teks pada seluruh gambar yang ditampilkan. Bila hanya gambar tidak memiliki arti apapun, cukup berikan atribut alt dengan nilai kosong. 
+// Dimensi touch target pada elemen yang diinteraksikan dengan touch harus memilliki ukuran minimal 44x44px. Adapun beberapa contoh elemen tersebut ialah button, anchor, input text, dan textarea.
+// Pastikan juga terdapat jarak antar elemen tersebut supaya dimensi touch target tidak menumpuk.
+// Menggunakan semantic element dalam menyusun struktur dan landmarking HTML.
 
-body {
-  color: $body-color;
+//font family
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+//color
+$primary: #212A3E;
+$secondary: #394867;
+$tertiary: #6d7c97;
+$quaternary: #e5ebf8;
+
+//font weight
+$black: 900;
+$extraBold: 800;
+$bold: 700;
+$semibold: 600;
+$medium: 500;
+$regular: 400;
+$light: 300;
+$extraLight: 200;
+
+// ! Global style
+*,body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+*{
+  &:focus{
+    outline-color: $primary;
+  }
+}
+
+// * Navigation Bar
+header{
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header.scrolled{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease-in-out;
+}
+
+#hamburger{
+  display: block;
+  position: relative;
+  z-index: 100;
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  color: $primary;
+  cursor: pointer;
+}
+
+
+.nav_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1400px;
+
+  .nav_brand{
+    z-index: 100;
+
+    .logo_wrapper{
+      height: 44px;
+      display: inline-block;
+      
+      #logo{
+        height: 40px;
+      }
+    }
+  }
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:  50px;
+
+  .nav_list{
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: start;
+    top: 0;
+    right: 0;
+    background-color: white;
+    height: 100vh;
+    width: 50%;
+    margin: auto;
+  
+    a{
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      padding: 8px 28px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: start;
+      text-decoration: none;
+      background-color: white;
+      font-weight: $medium;
+      color: $primary;
+  
+      &:hover{
+        color: $tertiary
+      }
+    }
+    animation: fade 0.3s ease-in-out;
+      @keyframes fade {
+        from{
+          opacity: 0;
+          transform: translate(50vw, 0);
+        }
+        to{
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
+  }
+  .nav_list.open{
+    position: absolute;
+    display: flex;
+    
+  }
+}
+// * Navigation Bar End
+
+
+// * Main Content
+main{
+  // max-width: 1400px;
+  margin: 0 auto;
+}
+
+main.blur{
+  filter: blur(4px);
+  transition: all 0.3s ease-in-out;
+}
+
+.hero_container{
+  position: relative;
+  height: 320px;
+
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55);
+    
+  }
+
+  .hero_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: white;
+    gap: 8px;
+    text-align: center;
+    
+    h1{
+      text-transform: uppercase;
+      font-size: 32px;
+    }
+    p{
+      width: 90%;
+      font-size: 14px;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.resto_container{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 36px 20px;
+
+  .resto_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+
+    h2{
+      font-size: 24px;
+    }
+    p{
+      font-size: 14px;
+    }
+  }
+}
+
+// * Main Content End
+
+
+//screen for tablet
+@media screen and (min-width: 600px) {
+  .hero_container{
+    height: 360px;
+  
+    .hero_content{
+      h1{
+        font-size: 36px;
+      }
+      p{
+        font-size: 16px;
+        width: 70%;
+      }
+    }  
+  }
+}
+
+//screen laptop
+@media screen and (min-width: 900px) {
+  #hamburger{
+    display: none;
+  }
+  nav{
+    .nav_list{
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      width: auto;
+      margin: 0;
+      background-color: transparent;
+      position: relative;
+      top: 0;
+      right: 0;
+      animation: none;
+      a{
+        padding: 0px 28px;
+      }
+    }
+  }
+
+  .hero_container{
+    height: 400px;
+    img{
+      min-width: 1000px;
+    }
+  
+    .hero_content{
+      h1{
+        font-size: 48px;
+      }
+      p{
+        font-size: 18px;
+        width: 100%;
+      }
+    }
+  }
+
+  .resto_container{
+    .resto_title{
+      h2{
+        font-size: 28px;
+      }
+      p{
+        font-size: 16px;
+      }
+    }
+  }
 }

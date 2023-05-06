@@ -1,17 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  
-  <title>Restaurant Apps Starter Project</title>
-</head>
-<body>
-  <h1>Restaurant Apps Starter Project</h1>
-  <p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-  <p>Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros sebagai background hero elemen</p>
-  <img src="./images/heros/hero-image_1.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_2.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_3.jpg" width="450" alt="">
-  <img src="./images/heros/hero-image_4.jpg" width="450" alt="">
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pinarak Resto</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav_container">
+        <div class="nav_brand">
+          <a href="#" class="logo_wrapper" aria-label="Pinarak Resto App"
+            ><img src="./images/logo.png" id="logo" alt="Logo Pinaraka Resto"
+          /></a>
+        </div>
+        <nav>
+          <button
+            id="hamburger"
+            aria-label="Buka menu navigasi"
+            title="Menu navigasi"
+          >
+            &#9776;
+          </button>
+          <div style="display: relative">
+            <div class="nav_list fade_animation">
+              <a href="#">Home</a>
+              <a href="#">Favorite</a>
+              <a
+                href="https://ulinnaja-aldi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >About Us</a
+              >
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero_container">
+        <img src="./images/heros/hero-image_2.jpg" alt="" />
+        <div class="hero_content">
+          <h1>Pinarak Resto</h1>
+          <p>
+            Nikmati berbagai macam olahan tradisional dengan harga terjangkau
+            dengan kualitas terbaik.
+          </p>
+        </div>
+      </section>
+      <section class="resto_container">
+        <div class="resto_title">
+          <h2>Kunjungi Pinarak Resto</h2>
+          <p>Rasakan masakan kami yang tersebar di seluruh kota</p>
+        </div>
+        <item-list></item-list>
+      </section>
+    </main>
+  </body>
 </html>
