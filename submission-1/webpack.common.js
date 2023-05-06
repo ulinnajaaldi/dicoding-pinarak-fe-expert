@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: {
     app: path.resolve(__dirname, "src/scripts/index.js"),
-    sw: path.resolve(__dirname, "src/scripts/sw.js"),
   },
   output: {
     filename: "[name].bundle.js",
@@ -23,6 +22,14 @@ module.exports = {
           "css-loader",
           // Compiles Sass to CSS
           "sass-loader",
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
         ],
       },
     ],
