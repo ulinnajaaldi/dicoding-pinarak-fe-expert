@@ -39,10 +39,15 @@ $extraLight: 200;
   font-size: 14px;
   color: white;
   border-radius: 4px;
-  padding: 8px 16px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 12px;
   z-index: 101;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:focus{
     left: 5px;
@@ -275,19 +280,22 @@ main.blur{
     }
   }
   .resto_content{
-    padding: 12px 20px;
+    padding: 0 20px 12px 20px;
     min-height: 335px;
 
     .title{
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin: 12px 0;
 
       a{
+        min-height: 44px;
+        min-width: 44px;
         text-decoration: none;
         color: $primary;
         font-size: 20px;
+        padding: 12px 8px 12px 0;
         font-weight: $semibold;
         transition: all 0.2s ease-in-out;
 
