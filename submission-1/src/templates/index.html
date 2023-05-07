@@ -7,14 +7,17 @@
     <title>Pinarak Resto</title>
   </head>
   <body>
-    <header>
-      <div class="nav_container">
+    <a href="#item_content" aria-label="Skip ke konten utama" class="skip_link"
+      >Skip To Content</a
+    >
+    <header id="header">
+      <nav class="nav_container">
         <div class="nav_brand">
-          <a href="#" class="logo_wrapper" aria-label="Pinarak Resto App"
+          <a href="#hero" class="logo_wrapper" aria-label="Pinarak Resto App"
             ><img src="./images/logo.png" id="logo" alt="Logo Pinaraka Resto"
           /></a>
         </div>
-        <nav>
+        <div class="nav_content">
           <button
             id="hamburger"
             aria-label="Buka menu navigasi"
@@ -22,25 +25,27 @@
           >
             &#9776;
           </button>
-          <div style="display: relative">
-            <div class="nav_list fade_animation">
-              <a href="#">Home</a>
-              <a href="#">Favorite</a>
-              <a
-                href="https://ulinnaja-aldi.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >About Us</a
-              >
-            </div>
+          <div class="nav_list">
+            <a href="#hero" class="nav_item">Home</a>
+            <a href="#" class="nav_item">Favorite</a>
+            <a
+              href="https://ulinnaja-aldi.vercel.app/"
+              class="nav_item"
+              target="_blank"
+              rel="noopener noreferrer"
+              >About Us</a
+            >
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section class="hero_container">
-        <img src="./images/heros/hero-image_2.jpg" alt="" />
+      <section class="hero_container" id="hero">
+        <img
+          src="./images/heros/hero-image_2.jpg"
+          alt="Masakan trandisional yang ada di piring"
+        />
         <div class="hero_content">
           <h1>Pinarak Resto</h1>
           <p>
@@ -49,7 +54,7 @@
           </p>
         </div>
       </section>
-      <section class="resto_container">
+      <section class="resto_container" id="item_content">
         <div class="resto_title">
           <h2>Kunjungi Pinarak Resto</h2>
           <p>Rasakan masakan kami yang tersebar di seluruh kota</p>
@@ -57,5 +62,14 @@
         <item-list></item-list>
       </section>
     </main>
+
+    <footer>
+      <div class="footer_container">
+        <img src="./images/logo_white.png" alt="Logo Pinarak Resto" />
+        <p>Sampai jumpa di kedai kami dan nikmati setiap hidangan spesial</p>
+        <hr />
+        <p>Copyright &copy; 2023 - Pinarak Resto</p>
+      </div>
+    </footer>
   </body>
 </html>

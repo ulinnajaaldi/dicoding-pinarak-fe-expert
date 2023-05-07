@@ -1,11 +1,3 @@
-// Syarat:
-// Seluruh fungsionalitas website dapat dilakukan dengan menggunakan keyboard. Contohnya mengakses tombol hamburger button, mengakses tautan yang ada.
-// Menerapkan teknik skip to content untuk melewati focus pada menu navigasi.
-// Terdapat alternative teks pada seluruh gambar yang ditampilkan. Bila hanya gambar tidak memiliki arti apapun, cukup berikan atribut alt dengan nilai kosong. 
-// Dimensi touch target pada elemen yang diinteraksikan dengan touch harus memilliki ukuran minimal 44x44px. Adapun beberapa contoh elemen tersebut ialah button, anchor, input text, dan textarea.
-// Pastikan juga terdapat jarak antar elemen tersebut supaya dimensi touch target tidak menumpuk.
-// Menggunakan semantic element dalam menyusun struktur dan landmarking HTML.
-
 //font family
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
@@ -30,11 +22,30 @@ $extraLight: 200;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
 
 *{
   &:focus{
     outline-color: $primary;
+  }
+}
+
+.skip_link{
+  position: absolute;
+  top: 55px;
+  left: -100vh;
+  background-color: $primary;
+  font-size: 14px;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+  z-index: 101;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+
+  &:focus{
+    left: 5px;
   }
 }
 
@@ -46,7 +57,7 @@ header{
   z-index: 100;
 }
 header.scrolled{
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.10);
   transition: all 0.3s ease-in-out;
 }
 
@@ -86,11 +97,11 @@ header.scrolled{
   }
 }
 
-nav{
+.nav_content{
   display: flex;
   align-items: center;
   justify-content: center;
-  height:  50px;
+  height: 50px;
 
   .nav_list{
     list-style: none;
@@ -138,7 +149,6 @@ nav{
   .nav_list.open{
     position: absolute;
     display: flex;
-    
   }
 }
 // * Navigation Bar End
@@ -146,7 +156,6 @@ nav{
 
 // * Main Content
 main{
-  // max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -214,7 +223,130 @@ main.blur{
   }
 }
 
+.resto_list{
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 20px;   
+}
+
+.resto_item{
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  background-color: white;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+
+  &:hover{
+    transform: translate(0, -4px);
+  }
+
+  .resto_image_wrapper{
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -10;
+      border-radius: 0.5rem 0.5rem 0 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover img{
+      transform: scale(1.05);
+    }
+    
+    p{
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px 16px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      font-size: 18px;
+      font-weight: $medium;
+      border-radius: 0.5rem 0 0.5rem 0;
+      cursor: default;
+    }
+  }
+  .resto_content{
+    padding: 12px 20px;
+    min-height: 335px;
+
+    .title{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+
+      a{
+        text-decoration: none;
+        color: $primary;
+        font-size: 20px;
+        font-weight: $semibold;
+        transition: all 0.2s ease-in-out;
+
+        &:hover{
+          color: $tertiary;
+        }
+      }
+
+      .rating{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-weight: $medium;
+        color: $secondary;
+        cursor: default;
+      }
+    }
+
+    .desc{
+      font-size: 14px;
+      line-height: 1.3rem;
+      color: $primary;
+      text-align: justify;
+      cursor: default;
+    }
+  }
+}
 // * Main Content End
+
+// * Footer
+footer{
+  background-color: $primary;
+  padding: 24px 0;
+  color: white;
+  text-align: center; 
+  font-weight: $medium;
+  cursor: default;
+}
+
+.footer_container{
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  img{
+    height: 40px;
+    padding-bottom: 4px;
+  }
+
+  hr{
+    margin: 8px 0;
+  }
+  
+  p{
+    font-size: 14px;
+    font-weight: $medium;
+  }
+}
 
 
 //screen for tablet
@@ -232,6 +364,25 @@ main.blur{
       }
     }  
   }
+  .resto_list{
+    grid-template-columns: repeat(2, minmax(0, 1fr));   
+  }
+  .resto_item{
+    .resto_content{
+      min-height: 395px;
+    }
+  }
+  .footer_container{
+    padding: 0 40px;
+  
+    img{
+      height: 50px;
+    }
+    p{
+      font-size: 16px;
+      font-weight: $medium;
+    }
+  }
 }
 
 //screen laptop
@@ -239,7 +390,21 @@ main.blur{
   #hamburger{
     display: none;
   }
-  nav{
+  .nav_container{
+    padding: 0 16px;
+    .nav_brand{
+      .logo_wrapper{
+        height: 44px;
+        padding: 0 28px;
+        display: inline-block;
+        
+        #logo{
+          height: 40px;
+        }
+      }
+    }
+  }
+  .nav_content{
     .nav_list{
       display: flex;
       flex-direction: row;
@@ -278,6 +443,8 @@ main.blur{
   }
 
   .resto_container{
+    padding: 36px 40px;
+
     .resto_title{
       h2{
         font-size: 28px;
@@ -285,6 +452,16 @@ main.blur{
       p{
         font-size: 16px;
       }
+    }
+  }
+
+  .resto_list{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 20px;   
+  }
+  .resto_item{
+    .resto_content{
+      min-height: 335px;
     }
   }
 }
