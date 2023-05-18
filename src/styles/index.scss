@@ -1,21 +1,4 @@
-//font family
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-//color
-$primary: #212A3E;
-$secondary: #394867;
-$tertiary: #6d7c97;
-$quaternary: #e5ebf8;
-
-//font weight
-$black: 900;
-$extraBold: 800;
-$bold: 700;
-$semibold: 600;
-$medium: 500;
-$regular: 400;
-$light: 300;
-$extraLight: 200;
+@import 'base';
 
 // ! Global style
 *,body {
@@ -106,7 +89,7 @@ header.scrolled{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 60px;
 
   .nav_list{
     list-style: none;
@@ -356,120 +339,3 @@ footer{
   }
 }
 
-
-//screen for tablet
-@media screen and (min-width: 600px) {
-  .hero_container{
-    height: 360px;
-  
-    .hero_content{
-      h1{
-        font-size: 36px;
-      }
-      p{
-        font-size: 16px;
-        width: 70%;
-      }
-    }  
-  }
-  .resto_list{
-    grid-template-columns: repeat(2, minmax(0, 1fr));   
-  }
-  .resto_item{
-    .resto_content{
-      min-height: 395px;
-    }
-  }
-  .footer_container{
-    padding: 0 40px;
-  
-    img{
-      height: 50px;
-    }
-    p{
-      font-size: 16px;
-      font-weight: $medium;
-    }
-  }
-}
-
-//screen laptop
-@media screen and (min-width: 900px) {
-  #hamburger{
-    display: none;
-  }
-  .nav_container{
-    padding: 0 16px;
-    .nav_brand{
-      .logo_wrapper{
-        height: 44px;
-        padding: 0 28px;
-        display: inline-block;
-        
-        #logo{
-          height: 40px;
-        }
-      }
-    }
-  }
-  .nav_content{
-    .nav_list{
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      width: auto;
-      margin: 0;
-      background-color: transparent;
-      position: relative;
-      top: 0;
-      right: 0;
-      animation: none;
-      a{
-        padding: 0px 28px;
-      }
-    }
-  }
-
-  .hero_container{
-    height: 400px;
-    img{
-      min-width: 1000px;
-    }
-  
-    .hero_content{
-      h1{
-        font-size: 48px;
-      }
-      p{
-        font-size: 18px;
-        width: 100%;
-      }
-    }
-  }
-
-  .resto_container{
-    padding: 36px 40px;
-
-    .resto_title{
-      h2{
-        font-size: 28px;
-      }
-      p{
-        font-size: 16px;
-      }
-    }
-  }
-
-  .resto_list{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px 20px;   
-  }
-  .resto_item{
-    .resto_content{
-      min-height: 335px;
-    }
-  }
-}
