@@ -193,7 +193,7 @@ main.blur {
     gap: 8px;
     margin-bottom: 28px;
     text-align: center;
-    h2 {
+    h1,h2 {
       font-size: 24px;
     }
     p {
@@ -464,14 +464,14 @@ main.blur {
   textarea {
     border: 1px solid $tertiary;
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
     font-size: 14px;
     color: $primary;
   }
   button {
     border: 1px solid $tertiary;
     border-radius: 8px;
-    padding: 12px;
+    padding: 16px;
     font-size: 14px;
     color: $quaternary;
     background-color: $secondary;
