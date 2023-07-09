@@ -56,15 +56,10 @@ class App {
     navList.addEventListener('click', closeNavList);
     mainElement.addEventListener('click', closeNavList);
 
-    const closeSkipLink = () => {
+    skipLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      mainElement.scrollIntoView({ behavior: 'smooth' });
       skipLink.blur();
-    };
-    skipLink.addEventListener('click', closeSkipLink);
-    skipLink.addEventListener('keydown', (event) => {
-      if (event.key === ' ') {
-        event.preventDefault();
-        closeSkipLink();
-      }
     });
 
     window.scrollTo(0, 0);
