@@ -6,7 +6,7 @@ const Favorite = {
     return `
     <section class="resto_container container" id="item_content">
       <div class="resto_title">
-        <h2>Restoran Favorite</h2>
+        <h1>Restoran Favorite</h1>
         <p>Jangan lupa mampir terus ke Pinarak Resto Group!</p>
         <div class="divider"></div>
       </div>
