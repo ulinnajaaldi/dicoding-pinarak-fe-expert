@@ -1,75 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pinarak Resto</title>
+    <link rel="manifest" href="./app.webmanifest" />
+    <meta name="theme-color" content="#212a3e" />
+    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
   </head>
   <body>
-    <a href="#item_content" aria-label="Skip ke konten utama" class="skip_link"
-      >Skip To Content</a
-    >
-    <header id="header">
-      <nav class="nav_container">
-        <div class="nav_brand">
-          <a href="#/" class="logo_wrapper" aria-label="Pinarak Resto App"
-            ><img src="./images/logo.png" id="logo" alt="Logo Pinaraka Resto"
-          /></a>
-        </div>
-        <div class="nav_content">
-          <button
-            id="hamburger"
-            aria-label="Buka menu navigasi"
-            title="Menu navigasi"
-          >
-            &#9776;
-          </button>
-          <div class="nav_list">
-            <a href="#/" class="nav_item">Home</a>
-            <a href="#" class="nav_item">Favorite</a>
-            <a
-              href="https://ulinnaja-aldi.vercel.app/"
-              class="nav_item"
-              target="_blank"
-              rel="noopener noreferrer"
-              >About Us</a
-            >
-          </div>
-        </div>
-      </nav>
-    </header>
+    <a href="#item_content" aria-label="Skip ke konten utama" class="skip_link">Skip To Content</a>
+    <navbar-element></navbar-element>
 
-    <main>
-      <section class="hero_container" id="hero">
-        <img
-          src="./images/heros/hero-image_2.jpg"
-          alt="Masakan trandisional yang ada di piring"
-        />
-        <div class="hero_content">
-          <h1>Pinarak Resto</h1>
-          <p>
-            Nikmati berbagai macam olahan tradisional dengan harga terjangkau
-            dengan kualitas terbaik.
-          </p>
-        </div>
-      </section>
-      <section class="resto_container" id="item_content">
-        <div class="resto_title">
-          <h2>Kunjungi Pinarak Resto</h2>
-          <p>Rasakan masakan kami yang tersebar di seluruh kota</p>
-        </div>
-        <item-list></item-list>
-      </section>
-    </main>
+    <main></main>
 
-    <footer>
-      <div class="footer_container">
-        <img src="./images/logo_white.png" alt="Logo Pinarak Resto" />
-        <p>Sampai jumpa di kedai kami dan nikmati setiap hidangan spesial</p>
-        <hr />
-        <p>Copyright &copy; 2023 - Pinarak Resto</p>
-      </div>
-    </footer>
+    <footer-element></footer-element>
   </body>
 </html>
