@@ -6,7 +6,10 @@
   "scripts": {
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "test": "karma start"
+    "test": "karma start",
+    "format": "prettier --write \"src/**/*.{js,css,scss}\"",
+    "serve": "http-server dist",
+    "start-prod": "npm run build && npm run serve"
   },
   "keywords": [],
   "author": "ulinnajaaldi24@gmail.com",
@@ -17,9 +20,13 @@
     "babel-loader": "^8.2.5",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
-    "eslint": "^8.17.0",
+    "eslint": "^8.44.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.1.1",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^4.2.0",
     "karma": "^5.2.3",
@@ -28,6 +35,7 @@
     "karma-jasmine": "^4.0.2",
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
+    "prettier": "^3.0.0",
     "sass": "^1.62.1",
     "sass-loader": "^13.2.2",
     "style-loader": "^3.3.1",
@@ -35,9 +43,12 @@
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.9.2",
     "webpack-merge": "^5.8.0",
-    "whatwg-fetch": "^3.6.2"
+    "whatwg-fetch": "^3.6.2",
+    "workbox-webpack-plugin": "^7.0.0"
   },
   "dependencies": {
-    "regenerator-runtime": "^0.13.9"
+    "idb": "^7.1.1",
+    "regenerator-runtime": "^0.13.9",
+    "workbox-window": "^7.0.0"
   }
 }
