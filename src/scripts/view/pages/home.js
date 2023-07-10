@@ -20,6 +20,7 @@ const Home = {
         <h2>Kunjungi Pinarak Resto Group</h2>
         <p>Rasakan masakan kami yang tersebar di seluruh kota di Indonesia.</p>
       </div>
+      <loading-circle></loading-circle>
       <div class="resto_list"></div>
     </section>
     <section class="search-container container">
@@ -33,6 +34,7 @@ const Home = {
           <input type="text" id="search-resto" placeholder="Cari restoran" class="search-input" />
           <button type="submit" class="search-button">Cari</button>
         </form>
+        <loading-row></loading-row>
         <p id="search-none"></p>
         <div class="search-list"></div>
       </div>
@@ -41,8 +43,12 @@ const Home = {
   },
 
   async afterRender() {
-    const restaurants = await RestaurantApiSource.listRestaurant();
     const restaurantContainer = document.querySelector('.resto_list');
+    const loadingElement = document.querySelector('.loader-wrapper');
+
+    const restaurants = await RestaurantApiSource.listRestaurant();
+    loadingElement.classList.add('display-none');
+
     restaurants.forEach((restaurant) => {
       restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
     });

@@ -45,23 +45,32 @@ const SearchHandler = async () => {
   const searchInput = document.querySelector('.search-input');
   const searchList = document.querySelector('.search-list');
   const searchNone = document.querySelector('#search-none');
+  const loadingRow = document.querySelector('.loading-row-wrapper');
+
+  searchNone.innerHTML = '';
+  searchList.innerHTML = '';
 
   if (!searchInput.value) {
     return;
   }
 
-  const data = await RestaurantApiSource.searchRestaurant(searchInput.value);
+  loadingRow.classList.remove('display-none');
 
-  if (data.length === 0 || data === undefined) {
-    searchNone.innerHTML = 'Tidak menemukan hasil';
-    searchList.innerHTML = '';
-  } else {
-    const resultElements = data.map(createRestaurantSearchItemTemplate);
-    searchNone.innerHTML = '';
-    searchList.innerHTML = '';
-    resultElements.forEach((element) => {
-      searchList.innerHTML += element;
-    });
+  try {
+    const data = await RestaurantApiSource.searchRestaurant(searchInput.value);
+
+    loadingRow.classList.add('display-none');
+
+    if (data.length === 0 || data === undefined) {
+      searchNone.innerHTML = 'Tidak menemukan hasil';
+    } else {
+      const resultElements = data.map(createRestaurantSearchItemTemplate);
+      resultElements.forEach((element) => {
+        searchList.innerHTML += element;
+      });
+    }
+  } catch (error) {
+    searchNone.innerHTML = 'Gagal memuat data. <br/> Periksa koneksi internet anda.';
   }
 
   searchInput.value = '';
