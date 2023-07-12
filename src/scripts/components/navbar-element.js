@@ -10,7 +10,7 @@ class NavbarElement extends HTMLElement {
                 <div class="nav_brand">
                 <a href="#/" class="logo_wrapper" aria-label="Pinarak Resto App"
                     ><img src="./images/logo.png" id="logo" alt="Logo Pinaraka Resto"
-                /></a>
+                    width="202" height="40"/></a>
                 </div>
                 <div class="nav_content">
                 <button
