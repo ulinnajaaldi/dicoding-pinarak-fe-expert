@@ -80,6 +80,8 @@ header.scrolled {
       display: inline-block;
       #logo {
         height: 40px;
+        width: auto;
+        object-fit: contain;
       }
     }
   }
@@ -594,6 +596,11 @@ main.blur {
 #search-none{
   text-align: center;
   font-weight: $semibold;
+}
+#page-none{
+  text-align: center;
+  font-weight: $semibold;
+  padding-top: 30vh;
 }
 .loader-wrapper{
   width: 100%;
