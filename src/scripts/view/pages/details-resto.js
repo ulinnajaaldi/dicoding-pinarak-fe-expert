@@ -1,8 +1,9 @@
 import RestaurantApiSource from '../../data/restaurant-api-source';
 import UrlParser from '../../routes/url-parser';
 import { PostReview } from '../../utils/api-handler';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonInitiator from '../../utils/like-button-presenter';
 import { createDetailRestaurantTemplate } from '../templates/template-creators';
+import FavoriteRestaurantIdb from '../../data/favorite-resto-idb';
 
 const DetailsResto = {
   async render() {
@@ -40,6 +41,7 @@ const DetailsResto = {
 
     LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      favoriteRestaurants: FavoriteRestaurantIdb,
       restaurant: {
         id: restaurant.restaurant.id,
         name: restaurant.restaurant.name,
