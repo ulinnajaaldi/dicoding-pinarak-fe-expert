@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import RestaurantApiSource from '../data/restaurant-api-source';
 import { createRestaurantSearchItemTemplate } from '../view/templates/template-creators';
 import UrlParser from '../routes/url-parser';
@@ -7,6 +8,11 @@ const PostReview = async () => {
   const name = document.querySelector('#name');
   const review = document.querySelector('#review');
   const detailsReviewContainer = document.querySelector('.details-review-wrapper');
+
+  if (name.value === '' || review.value === '') {
+    alert('Nama dan review tidak boleh kosong!');
+    return;
+  }
 
   const data = {
     id: url.id,
@@ -51,6 +57,7 @@ const SearchHandler = async () => {
   searchList.innerHTML = '';
 
   if (!searchInput.value) {
+    searchNone.innerHTML = 'Masukkan kata kunci pencarian';
     return;
   }
 
