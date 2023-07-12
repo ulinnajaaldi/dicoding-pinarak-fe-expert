@@ -20,7 +20,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <div class="details-subheader">
                 <img src="${Config.BASE_IMAGE_URL + restaurant.pictureId}" alt="${
                   restaurant.name
-                }" class="details-image"/>
+                }" class="details-image lazyload"/>
                 <div class="details-content">
                 <div class="details-content-item">
                     <p class="details-content-title">Rating</p>: ${restaurant.rating} / 5.0
@@ -44,7 +44,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <h1 class="details-subtitle">Daftar menu</h1>
             <div class="details-menu">
                 <div class="details-menu-item">
-                <h4 class="details-menu-title">Makanan</h4>
+                <h2 class="details-menu-title">Makanan</h2>
                 <div class="details-menu-wrapper">
                 ${restaurant.menus.foods
                   .map(
@@ -55,7 +55,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
                 </div>
                 </div>
                 <div class="details-menu-item">
-                <h4 class="details-menu-title">Minuman</h4>
+                <h2 class="details-menu-title">Minuman</h2>
                 <div class="details-menu-wrapper">
                 ${restaurant.menus.drinks
                   .map(
@@ -89,10 +89,20 @@ const createDetailRestaurantTemplate = (restaurant) => `
                 `,
                   )
                   .join('')}
-                
             </div>
         </div>
-        
+        <form class="form-review">
+          <h1 class="details-subtitle">Tambahkan Ulasanmu</h1>
+          <div>
+            <label>Nama</label>
+            <input type="text" name="name" id="name" placeholder="Nama" />
+          </div>
+          <div>
+            <label>Ulasan</label>
+            <textarea name="review" id="review" rows="4" placeholder="Ulasan"></textarea>
+          </div>
+          <button type="submit" id="submit-review">Kirim</button>
+        </form>
     </div>
 `;
 
