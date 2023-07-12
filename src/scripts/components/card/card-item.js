@@ -10,6 +10,7 @@ class CardItem extends HTMLElement {
           <img
             src="${this.getAttribute('image')}"
             alt="${this.getAttribute('name')}"
+            class="lazyload"
           />
           <p>${this.getAttribute('city')}</p>
         </div>
