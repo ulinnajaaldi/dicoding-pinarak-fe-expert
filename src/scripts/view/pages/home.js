@@ -6,7 +6,17 @@ const Home = {
   async render() {
     return `
     <section class="hero_container" id="hero">
-      <img src="./images/heros/hero-image_2.jpg" alt="Masakan trandisional yang ada di piring" />
+      <picture>
+        <source
+          media="(max-width: 600px)"
+          srcset="./images/heros/hero-image_2-small.jpg"
+        />
+        <source
+          media="(max-width: 1280px)"
+          srcset="./images/heros/hero-image_2-medium.jpg"
+        />
+        <img src="./images/heros/hero-image_2-large.jpg" alt="Masakan trandisional yang ada di piring" />
+      </picture>
       <div class="hero_content">
         <h1>Pinarak Resto</h1>
         <p>
