@@ -20,6 +20,19 @@ const DetailsResto = {
     try {
       const restaurant = await RestaurantApiSource.detailRestaurant(url.id);
       restaurantContainer.innerHTML = createDetailRestaurantTemplate(restaurant.restaurant);
+
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteRestaurants: FavoriteRestaurantIdb,
+        restaurant: {
+          id: restaurant.restaurant.id,
+          name: restaurant.restaurant.name,
+          city: restaurant.restaurant.city,
+          pictureId: restaurant.restaurant.pictureId,
+          description: restaurant.restaurant.description,
+          rating: restaurant.restaurant.rating,
+        },
+      });
     } catch (error) {
       restaurantContainer.innerHTML =
         '<p id="page-none">Upps... Maaf halaman tidak bisa diakses <br/> Coba periksa koneksi anda </p>';
@@ -29,19 +42,6 @@ const DetailsResto = {
     submitReviewButton.addEventListener('click', (event) => {
       event.preventDefault();
       PostReview();
-    });
-
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      favoriteRestaurants: FavoriteRestaurantIdb,
-      restaurant: {
-        id: restaurant.restaurant.id,
-        name: restaurant.restaurant.name,
-        city: restaurant.restaurant.city,
-        pictureId: restaurant.restaurant.pictureId,
-        description: restaurant.restaurant.description,
-        rating: restaurant.restaurant.rating,
-      },
     });
   },
 };
