@@ -54,7 +54,7 @@ const Home = {
     });
 
     const searchForm = document.querySelector('.search-input-wrapper');
-    searchForm.addEventListener('click', (event) => {
+    searchForm.addEventListener('submit', (event) => {
       event.preventDefault();
       SearchHandler();
     });
