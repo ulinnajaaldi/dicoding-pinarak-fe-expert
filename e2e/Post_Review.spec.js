@@ -5,12 +5,11 @@ Feature('Post Review');
 Scenario('Post a review', async ({ I }) => {
   I.amOnPage('/');
 
-  I.wait(2);
+  I.waitForElement('.resto_item .resto_content .title a', 2);
 
-  I.seeElement('.resto_item .resto_content .title a');
   I.click(locate('.resto_item .resto_content .title a').first());
 
-  I.seeElement('.form-review');
+  I.waitForElement('.form-review');
 
   const name = 'From E2E Testing';
   const review = 'From E2E Testing Review';

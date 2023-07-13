@@ -11,7 +11,7 @@ Scenario('Empty search field', async ({ I }) => {
 
   I.wait(2);
 
-  I.see('Masukkan kata kunci pencarian', '#search-none');
+  I.see('Masukkan kata kunci pencarian', 'p');
 });
 
 Scenario('Empty search result', async ({ I }) => {
@@ -23,7 +23,7 @@ Scenario('Empty search result', async ({ I }) => {
 
   I.wait(2);
 
-  I.see('Tidak menemukan hasil', '#search-none');
+  I.see('Tidak menemukan hasil', 'p');
 });
 
 Scenario('Searching a menus, ', async ({ I }) => {
@@ -33,13 +33,12 @@ Scenario('Searching a menus, ', async ({ I }) => {
   I.fillField('.search-input', 'Sirup');
   I.click('.search-button');
 
-  I.wait(2);
+  I.waitForElement('.resto_item .resto_content .title a', 2);
 
-  I.seeElement('.resto_item .resto_content .title a');
   const firstRestaurant = locate('.resto_item .resto_content .title a').first();
   I.click(firstRestaurant);
 
-  I.seeElement('.details-menu-item .details-menu-wrapper .details-menu-description');
+  I.waitForElement('.details-menu-item .details-menu-wrapper .details-menu-description');
 
   const menuRestaurant = await I.grabTextFromAll(
     '.details-menu-item .details-menu-wrapper .details-menu-description',
