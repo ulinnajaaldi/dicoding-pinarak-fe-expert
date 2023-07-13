@@ -5,7 +5,7 @@ Feature('Search Restaurant');
 Scenario('Empty search field', async ({ I }) => {
   I.amOnPage('/');
 
-  I.seeElement('.search-input');
+  I.waitForElement('.search-input');
   I.fillField('.search-input', '');
   I.click('.search-button');
 
@@ -17,7 +17,7 @@ Scenario('Empty search field', async ({ I }) => {
 Scenario('Empty search result', async ({ I }) => {
   I.amOnPage('/');
 
-  I.seeElement('.search-input');
+  I.waitForElement('.search-input');
   I.fillField('.search-input', 'qwertyuiop');
   I.click('.search-button');
 
@@ -29,7 +29,7 @@ Scenario('Empty search result', async ({ I }) => {
 Scenario('Searching a menus, ', async ({ I }) => {
   I.amOnPage('/');
 
-  I.seeElement('.search-input');
+  I.waitForElement('.search-input');
   I.fillField('.search-input', 'Sirup');
   I.click('.search-button');
 
