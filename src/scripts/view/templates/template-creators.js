@@ -20,7 +20,7 @@ const createDetailRestaurantTemplate = (restaurant) => `
             <div class="details-subheader">
                 <img src="${Config.BASE_IMAGE_URL + restaurant.pictureId}" alt="${
                   restaurant.name
-                }" class="details-image lazyload"/>
+                }" class="details-image"/>
                 <div class="details-content">
                 <div class="details-content-item">
                     <p class="details-content-title">Rating</p>: ${restaurant.rating} / 5.0
