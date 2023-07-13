@@ -7,7 +7,7 @@ class FooterElement extends HTMLElement {
     this.innerHTML = `
         <footer>
             <div class="footer_container">
-                <img src="./images/logo_white.png" alt="Logo Pinarak Resto" class="lazyload" />
+                <img data-src="./images/logo_white.png" alt="Logo Pinarak Resto" class="lazyload" />
                 <p>Sampai jumpa di kedai kami dan nikmati setiap hidangan spesial</p>
                 <div></div>
                 <p>Copyright &copy; 2023 - Pinarak Resto</p>

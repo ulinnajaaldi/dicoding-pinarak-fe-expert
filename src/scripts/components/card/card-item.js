@@ -8,7 +8,7 @@ class CardItem extends HTMLElement {
       <div class="resto_item">
         <div class="resto_image_wrapper">
           <img
-            src="${this.getAttribute('image')}"
+            data-src="${this.getAttribute('image')}"
             alt="${this.getAttribute('name')}"
             class="lazyload"
           />
